@@ -20,6 +20,12 @@ app.get('/', (req, res) => {
 
 
 io.on('connection', (socket) => {
+
+
+  socket.on("login:username", (nick) => {
+    console.log(nick);
+  })
+
   socket.on('chat:message', (msg) => {
     
     console.log(`wiadomosc od (${socket.id}): ${msg}`);

@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { createDiv } from "../../utils/createDiv";
-import { io } from "socket.io-client";
+import { socket } from "../../socket";
 import styles from "../Chat/Chat.module.css";
+import { errorNotification } from "../../utils/errorNotification/errorNotification";
 
-const socket = io();
 
 export const Chat = () => {
   const textArea = useRef(null);
@@ -15,13 +15,16 @@ export const Chat = () => {
 
 
   const handleClick = (e) => {
-    setText(textArea.current.value);
-    setText("");
-    socket.emit("chat:message", text);
+    if(text != "" || text == null){
+      setText(textArea.current.value);
+      setText("");
+      socket.emit("chat:message", text);
+    } else {
+      errorNotification(textArea);
+    }
   };
 
   const handleEnter = (e) => {
-    console.log(e.key)
     if(e.key == "Enter"){
       handleClick(e);
     }
@@ -60,11 +63,13 @@ export const Chat = () => {
         <div className={styles.inputHero}>
           <input
             type="text"
-            className={styles.inputText}
+            className={`${styles.inputText} ${styles.inputTextError}`}
             ref={textArea}
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={handleEnter}
+            autoFocus={true}
+            tabIndex={0}
           />
 
           <button className={styles.inputButton} onClick={handleClick}>

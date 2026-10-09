@@ -1,0 +1,10 @@
+.error{
+    animation: shake 0.4s;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); border: 0.2px rgba(255, 0, 0, 0.63) solid; background-color: rgba(255, 86, 86, 0.082) ; }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+}
