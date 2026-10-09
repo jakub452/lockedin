@@ -1,12 +1,11 @@
 import './App.css'
-import { LoginPage } from './pages/LoginPage/LoginPage'
-
+import { Chat } from './pages/Chat/Chat'
 
 function App() {
 
   return (
     <>
-      <LoginPage />
+      <Chat />
     </>
   )
 }

@@ -13,7 +13,6 @@ const server = createServer(app);
 const io = new Server(server);
 
 
-
 app.use(express.static(distPath));
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: distPath });
