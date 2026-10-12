@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRef } from "react";
 import { socket } from "../../socket";
+import styles from './LoginPage.module.css'
 
 export const LoginPage = () => {
 
@@ -13,13 +14,20 @@ export const LoginPage = () => {
 
 
   return (
-    <div>
+    <div className={styles.LoginPageHero}>
         <input 
+            className={styles.LoginPageInput}
             type="text" 
             ref={textInput} 
             onChange={e => {setText(e.target.value)}}
         />
-        <button onClick={checkLogin} disabled={true}>Button</button>
+        <button 
+            onClick={checkLogin} 
+            disabled={true}
+            className={styles.LoginPageButton}
+        >
+        Button
+        </button>
     </div>
   )
 }

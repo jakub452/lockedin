@@ -1,0 +1,43 @@
+.LoginPageHero{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    flex-direction: column;
+}
+
+.LoginPageInput{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 5px;
+    width: 16rem;
+    height: 2.5rem;
+
+    font-size: 1.2rem;
+
+    margin: 20px;
+}
+
+.LoginPageButton{
+    
+    width: 5rem;
+    border-radius: 5px;
+
+    border: #3B3B3B 2px solid ;
+
+    background-color: transparent;
+
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+.LoginPageButton:active{
+    border: #16171D 2px solid ;
+
+    background-color: #3B3B3B;
+}
