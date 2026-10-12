@@ -31,8 +31,8 @@ export const Chat = () => {
   }
 
   useEffect(() => {
-    const onMessage = (msg, id) => {
-      setItems((prev) => [...prev, createDiv(`${id}: ${msg}`)]);
+    const onMessage = (msg, username) => {
+      setItems((prev) => [...prev, createDiv(`${username}: ${msg}`)]);
     };
 
     socket.on("chat:message", onMessage);

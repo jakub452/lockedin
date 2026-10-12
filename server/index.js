@@ -20,17 +20,20 @@ app.get('/', (req, res) => {
 
 
 io.on('connection', (socket) => {
+  socket.data.username = '';
 
 
-  socket.on("login:username", (nick) => {
+
+
+  socket.on("login:username", (nick, callback) => {
     console.log(nick);
+    socket.data.username = nick;
+    callback({ status: "ok", id: socket.id, nick })
   })
 
   socket.on('chat:message', (msg) => {
-    
     console.log(`wiadomosc od (${socket.id}): ${msg}`);
-
-    io.emit('chat:message', msg, socket.id)
+    io.emit('chat:message', msg, socket.data.username)
   })
 });
 
