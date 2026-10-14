@@ -1,12 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { createDiv } from "../../utils/createDiv";
+import { useState, useEffect, useRef, createElement } from "react";
 import { socket } from "../../socket";
-import styles from "../Chat/Chat.module.css";
+import styles from "../ChatBox/ChatBox.module.css";
 import Inputs from "./Inputs/Inputs";
 
-export const Chat = () => {
+const ChatBox = () => {
 
 
   const [items, setItems] = useState([]);
@@ -16,14 +13,10 @@ export const Chat = () => {
 
   useEffect(() => {
     const onMessage = (msg, username) => {
-      setItems((prev) => [...prev, createDiv(`${username}: ${msg}`)]);
+      setItems((prev) => [...prev, createElement("p", { key: prev.length }, `${username}: ${msg}`)]);
     };
 
     socket.on("chat:message", onMessage);
-
-    socket.on('userlist:update', list => {
-      console.log(list)
-    })
 
     return () => {
       socket.off("chat:message", onMessage);
@@ -49,10 +42,11 @@ export const Chat = () => {
           <div ref={bottomRef}></div>
         </div>
 
-        <Inputs 
-          
-        />
+        <Inputs />
+        
       </div>
     </>
   );
 };
+
+export default ChatBox

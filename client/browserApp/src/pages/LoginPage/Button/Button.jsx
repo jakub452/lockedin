@@ -7,7 +7,6 @@ const variants = {
   decline: styles.decline,
 };
 
-
 /**
  * @param {{
  *  variant?: "default" | "confirm" | "decline",

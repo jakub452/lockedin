@@ -1,0 +1,25 @@
+
+.UserListHero{    
+
+    width: 19vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+}
+
+.UserListHero p{
+    font-weight: bold;
+    color: green;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.UserListElement{
+    margin-right: 1rem;
+}
