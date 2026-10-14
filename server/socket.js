@@ -24,6 +24,7 @@ export const registerSocketEvents = (io) => {
 
     socket.on("disconnect", () => {
       users.delete(socket.id);
+      io.emit("userlist:update", [...users.values()]);
     });
     
   });
