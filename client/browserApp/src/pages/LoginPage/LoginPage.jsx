@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { socket } from "../../socket";
 import styles from './LoginPage.module.css'
 import { useNavigate } from 'react-router-dom'
-
+import Button from '../../components/Button/Button'
 
 export const LoginPage = () => {
     
@@ -26,7 +26,7 @@ export const LoginPage = () => {
 
   return (
     <div className={styles.LoginPageHero}>
-        <div>Wpisz nick</div>
+        <p>Wpisz nick</p>
         <input 
             className={styles.LoginPageInput}
             type="text" 
@@ -34,14 +34,11 @@ export const LoginPage = () => {
             onChange={e => {setUsername(e.target.value)}}
         />
 
-        <button 
-            onClick={checkLogin} 
-            className={styles.LoginPageButton}
-
-            
-        >
-        Button
-        </button>
+        <Button
+            onClick={checkLogin}
+            text={"Confirm"}
+        />
+    
     </div>
   )
 }

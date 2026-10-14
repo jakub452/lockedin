@@ -1,0 +1,62 @@
+.inputHero{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 50vw;
+
+    font-size: 1.2rem;
+
+    position: absolute;
+    top: 90vh;
+}
+
+.inputText{
+    width: 50%;
+    
+    border: none;
+    border-radius: 5px;
+
+    padding: 5px;
+    margin: 5px;
+
+    font-size: 1.1rem;
+
+}
+.inputText:focus{
+    background-color: rgb(75, 75, 75);
+    border: none;
+    outline: none;
+}
+.inputText:hover{
+    background-color: rgb(75, 75, 75);
+}
+.inputButton{
+    background-color: rgb(59, 59, 59);
+    outline: none;
+    border: none;
+
+    padding: 5px;
+    margin: 5px;
+
+    border-radius: 5px;
+
+}
+.inputButtonIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    width: 1.4rem;
+}
+
+.inputButton:hover{
+    background-color: rgb(75, 75, 75);
+    cursor: pointer;
+}
+.inputButton:active{
+    scale: 0.95;
+}

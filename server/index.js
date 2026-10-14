@@ -14,10 +14,16 @@ const io = new Server(server);
 
 
 app.use(express.static(distPath));
+
+app.use((req, res) => {
+  res.redirect("/");
+})
+
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: distPath });
 });
 
+let users = new Map();
 
 io.on('connection', (socket) => {
   socket.data.username = '';
@@ -25,15 +31,20 @@ io.on('connection', (socket) => {
 
 
 
-  socket.on("login:username", (nick, callback) => {
-    console.log(nick);
-    socket.data.username = nick;
-    callback({ status: "ok", id: socket.id, nick })
+  socket.on("login:username", (username, callback) => {
+    users.set(socket.id, username);
+    socket.data.username = username;
+    callback({ status: "ok", id: socket.id, username })
+
+    io.emit("userlist:update", [...users.values()])
   })
 
   socket.on('chat:message', (msg) => {
-    console.log(`wiadomosc od (${socket.id}): ${msg}`);
-    io.emit('chat:message', msg, socket.data.username)
+    io.emit('chat:message', msg, socket.data.username);
+  })
+  
+  socket.on('disconnect', () => {
+    users.delete(socket.id);
   })
 });
 

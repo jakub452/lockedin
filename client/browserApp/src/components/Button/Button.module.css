@@ -1,0 +1,21 @@
+.default{
+    font-size: 1.1rem;
+    border-radius: 5px;
+    font-weight: bold;
+
+    border: none;
+
+    color: whitesmoke;
+    background-color: #3B3B3B;
+    padding: 0.4rem;
+
+    text-align: center;
+}
+
+.default:hover{
+    text-shadow: 1px 1px 10px;
+    cursor: pointer;
+}
+.default:active{
+    scale: 0.96;
+}
