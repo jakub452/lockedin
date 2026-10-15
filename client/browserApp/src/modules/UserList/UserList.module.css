@@ -1,5 +1,7 @@
 .UserListHero {
 
+  z-index: 999;
+
   position: fixed;
   display: flex;
   align-items: center;
@@ -14,7 +16,7 @@
   user-select: none;
   cursor: move;
 
-  background-color: rgba(0, 0, 0, 0.308);
+  background-color: rgba(0, 0, 0, 0.589);
   padding: 0.3rem;
 }
 

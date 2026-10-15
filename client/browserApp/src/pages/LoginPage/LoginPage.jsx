@@ -16,7 +16,7 @@ export const LoginPage = () => {
     const checkLogin = (e) => {
         socket.emit("login:username", username, (res) => {
             if (res.status === "ok"){
-                navigate("/Chat")
+                navigate("/chat")
             } else {
                 navigate("/")
             }

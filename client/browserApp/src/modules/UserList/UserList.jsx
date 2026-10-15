@@ -4,14 +4,7 @@ import { socket } from "../../socket";
 import { createDraggable } from "../../utils/createDraggable";
 
 const UserList = () => {
-  const [userList, setUserList] = useState([
-    "krzywy",
-    "prosty",
-    "costam",
-    "zaruwkdsdddddda",
-    "zlotuwka",
-    "kukirin",
-  ]);
+  const [userList, setUserList] = useState([]);
 
   const userListRef = useRef(null);
 
