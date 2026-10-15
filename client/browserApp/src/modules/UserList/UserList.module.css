@@ -1,25 +1,36 @@
+.UserListHero {
 
-.UserListHero{    
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-    width: 19vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 1rem;
+  width: 14vw;
+
+  top: 0;
+  left: 0;
+
+  user-select: none;
+  cursor: move;
+
+  background-color: rgba(0, 0, 0, 0.308);
+  padding: 0.3rem;
 }
 
-.UserListHero p{
-    font-weight: bold;
-    color: green;
+.UserListHero p {
+  font-weight: bold;
+  color: green;
 }
 
-ul{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.UserListElement{
-    margin-right: 1rem;
+.UserListElement {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }

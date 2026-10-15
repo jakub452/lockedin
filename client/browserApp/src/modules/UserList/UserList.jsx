@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./UserList.module.css";
 import { socket } from "../../socket";
+import { createDraggable } from "../../utils/createDraggable";
 
 const UserList = () => {
   const [userList, setUserList] = useState([
     "krzywy",
     "prosty",
     "costam",
-    "zaruwka",
+    "zaruwkdsdddddda",
     "zlotuwka",
     "kukirin",
   ]);
 
+  const userListRef = useRef(null);
+
   useEffect(() => {
+    createDraggable(userListRef);
+
     socket.emit("userlist:request");
     socket.on("userlist:update", (users) => {
       setUserList(users);
@@ -24,7 +29,7 @@ const UserList = () => {
   }, []);
 
   return (
-    <div className={styles.UserListHero}>
+    <div className={styles.UserListHero} ref={userListRef}>
       <p>online:</p>
       <ul>
         {userList.map((username, i) => (

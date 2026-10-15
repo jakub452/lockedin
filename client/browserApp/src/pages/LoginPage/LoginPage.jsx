@@ -4,6 +4,7 @@ import { socket } from "../../socket";
 import styles from './LoginPage.module.css'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button/Button'
+import { handleEnterEvent } from "../../utils/handleEnterEvent";
 
 export const LoginPage = () => {
     
@@ -31,6 +32,9 @@ export const LoginPage = () => {
             type="text" 
             ref={textInput} 
             onChange={e => {setUsername(e.target.value)}}
+            onKeyDown={e => {handleEnterEvent(e, checkLogin)}}
+            tabIndex={0}
+            autoFocus={true}
         />
 
         <Button
