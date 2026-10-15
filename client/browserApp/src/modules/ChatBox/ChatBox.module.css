@@ -1,57 +1,60 @@
-.topText{
-    color: red;
+.topText {
+  color: red;
 }
 
-.chatHero{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
+.chatHero {
+  position: absolute;
+  top: 0;
+  left: calc(100vw - 25vw);
 
-    height: 100vh;
+  z-index: 9999;
 
-    overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.582);
 
-    scrollbar-width: thin;
-    scrollbar-color: #23262f #16171d;
+  width: 25vw;
+  height: 30vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: #23262f #16171d;
 }
 
-.chatMain{
-    
-    width: 100%;
-    height: 70vh;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    
-    height: 100vh;
+.chatMain {
+  width: 100%;
+  height: 70vh;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 
-    padding-bottom: 10vh;
+  height: 100vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.chatMessage{
-    
-    padding: 4px;
-    
-    font-size: 1.2rem;
-    
-    width: 100%;
-    
-    display: flex;
-    justify-content: start;
-    flex-wrap: wrap;
-    text-align: start;
+.chatMessage {
+  padding: 4px;
 
-    letter-spacing: 0.3px;
+  font-size: 1.2rem;
 
-    overflow-wrap: anywhere;
+  width: 100%;
 
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  text-align: start;
+
+  letter-spacing: 0.3px;
+
+  overflow-wrap: anywhere;
 }
-.chatMessage:nth-of-type(odd){
-    background-color: rgb(35, 37, 44);
+.chatMessage:nth-of-type(odd) {
+  background-color: rgba(35, 37, 44, 0.253);
 }
-

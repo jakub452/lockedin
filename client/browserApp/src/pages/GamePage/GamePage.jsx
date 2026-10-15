@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./GamePage.module.css";
 import UserList from "../../modules/UserList/UserList";
+import ChatBox from "../../modules/ChatBox/ChatBox";
 
 const GamePage = () => {
   const iframeRef = useRef(null);
@@ -15,7 +16,6 @@ const GamePage = () => {
 
   return (
     <div>
-      <UserList />
       <div className={styles.GameFrameContainer}>
         <iframe
           ref={iframeRef}
