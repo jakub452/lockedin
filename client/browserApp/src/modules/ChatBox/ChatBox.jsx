@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, createElement } from "react";
-import { socket } from "../../socket";
+import { getLoggedIn, socket } from "../../socket";
 import styles from "../ChatBox/ChatBox.module.css";
 import Inputs from "./Inputs/Inputs";
 import { createDraggable } from "../../utils/createDraggable";
@@ -16,8 +16,9 @@ const ChatBox = () => {
     createDraggable(chatHero)
 
     const onMessage = (msg, username) => {
-      setItems((prev) => [...prev, createElement("p", { key: prev.length }, `${username}: ${msg}`)]);
-      console.log(items)
+      if(getLoggedIn() == true){
+        setItems((prev) => [...prev, createElement("p", { key: prev.length }, `${username}: ${msg}`)]);
+      }
     };
 
     socket.on("chat:message", onMessage);

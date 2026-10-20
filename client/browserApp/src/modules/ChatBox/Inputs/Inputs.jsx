@@ -1,7 +1,7 @@
 import styles from "./Inputs.module.css";
 import { errorNotification } from "../../../utils/errorNotification/errorNotification";
 import { useRef, useState } from "react";
-import { socket } from "../../../socket";
+import { getLoggedIn, socket } from "../../../socket";
 
 const Inputs = () => {
 
@@ -36,7 +36,12 @@ const Inputs = () => {
     if (text != "" || text == null) {
       setText(textArea.current.value);
       setText("");
-      socket.emit("chat:message", text);
+      console.log(getLoggedIn())
+      if(getLoggedIn() == true){
+        socket.emit("chat:message", text);
+      } else {
+        console.log('zaloguj sie!')
+      }
     } else {
       errorNotification(textArea);
     }

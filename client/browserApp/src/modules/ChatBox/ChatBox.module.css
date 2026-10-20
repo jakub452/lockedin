@@ -1,18 +1,14 @@
-.topText {
-  color: red;
-}
-
 .chatHero {
-  position: absolute;
-  top: 0;
-  left: calc(100vw - 25vw);
+  position: relative;
+
+  left: calc(100vw - 30vw);
 
   z-index: 9999;
 
   background-color: rgba(0, 0, 0, 0.582);
 
-  width: 25vw;
-  height: 30vh;
+  width: 30vw;
+  height: 40vh;
 
   display: flex;
   align-items: center;
@@ -23,17 +19,20 @@
 
   scrollbar-width: thin;
   scrollbar-color: #23262f #16171d;
+  
+  cursor: move;
 }
 
 .chatMain {
+  border: 1px #23262f dotted;
+  
   width: 100%;
-  height: 70vh;
 
   display: flex;
   flex-direction: column;
   align-items: start;
 
-  height: 100vh;
+  height: 100%;
 
   overflow-y: auto;
   overflow-x: hidden;
