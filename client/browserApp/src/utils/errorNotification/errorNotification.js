@@ -1,5 +1,6 @@
 import styles from './errorNotification.module.css';
 
+
 export const errorNotification = (ref) => {
     if(!ref.current.classList.contains(styles.error)){
 

@@ -1,7 +1,8 @@
 import styles from "./Inputs.module.css";
 import { errorNotification } from "../../../utils/errorNotification/errorNotification";
 import { useRef, useState } from "react";
-import { getLoggedIn, socket } from "../../../socket";
+import { sendMessage } from "../../../socket";
+import { handleEnterEvent } from "../../../utils/handleEnterEvent";
 
 const Inputs = () => {
 
@@ -26,22 +27,14 @@ const Inputs = () => {
   const textArea = useRef(null);
   const [text, setText] = useState("");
 
-  const handleEnter = (e) => {
-    if (e.key == "Enter") {
-      handleClick(e);
-    }
-  };
-
   const handleClick = (e) => {
     if (text != "" || text == null) {
+
       setText(textArea.current.value);
       setText("");
-      console.log(getLoggedIn())
-      if(getLoggedIn() == true){
-        socket.emit("chat:message", text);
-      } else {
-        console.log('zaloguj sie!')
-      }
+
+      sendMessage(text);
+
     } else {
       errorNotification(textArea);
     }
@@ -55,7 +48,7 @@ const Inputs = () => {
         ref={textArea}
         value={text}
         onChange={(e) => setText(e.target.value)}
-        onKeyDown={handleEnter}
+        onKeyDown={(e) => handleEnterEvent(e, handleClick)}
         autoFocus={true}
         tabIndex={0}
       />

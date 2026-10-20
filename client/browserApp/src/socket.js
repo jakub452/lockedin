@@ -1,14 +1,27 @@
 import { io } from "socket.io-client";
 
-let loggedin = new Boolean
-loggedin = false;
 
-export const setLoggedIn = (value) => {
-    loggedin = value
+export const userData = {
+    loggedIn: false,
+    username: "",
+    userlist: [],
+
 }
 
-export const getLoggedIn = () => {
-    return loggedin
+export const sendMessage = (text) => {
+    if(userData.loggedIn){
+        socket.emit("chat:message", text)
+    } else {
+        console.log('zaloguj sie!')
+    }
+}
+
+export const setUsername = (value) => {
+    state.username = value
+}
+
+export const setLoggedIn = (value) => {
+    userData.loggedIn = value
 }
 
 export const socket = io();

@@ -1,6 +1,6 @@
 export const createDraggable = (ref) => {
   let offsetX, offsetY;
-  ref.current.style.position = `fixed`;
+  // ref.current.style.position = `fixed`;
 
   const cursorMove = (e) => {
     ref.current.style.left = `${e.clientX - offsetX}px`;

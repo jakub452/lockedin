@@ -4,10 +4,15 @@ import DotField from "../../modules/DotField/DotField";
 import styles from './MainPage.module.css'
 import { LoginField } from "../../modules/LoginField/LoginField";
 import { socket } from "../../socket";
-
+import TaskBar from "../../modules/TaskBar/TaskBar";
+import { useState } from "react";
 socket.on()
 
+
 const MainPage = () => {
+
+  const [chatHidden, setChatHidden] = useState(false);
+
   return (
     <div className={styles.MainPage}>
       <div>
@@ -33,9 +38,10 @@ const MainPage = () => {
           intro
           lightMode={false}
         />
-        <ChatBox />
         <UserList />
         <LoginField />
+        <ChatBox minimalized={chatHidden} onMinimalize={() => setChatHidden(!chatHidden)}/>
+        <TaskBar onMinimalize={() => {setChatHidden(!chatHidden)}} />
       </div>
     </div>
   );

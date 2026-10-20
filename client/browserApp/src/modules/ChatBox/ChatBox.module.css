@@ -1,9 +1,9 @@
 .chatHero {
-  position: relative;
+  position: fixed;
+
+  user-select: none;
 
   left: calc(100vw - 30vw);
-
-  z-index: 9999;
 
   background-color: rgba(0, 0, 0, 0.582);
 
@@ -19,13 +19,35 @@
 
   scrollbar-width: thin;
   scrollbar-color: #23262f #16171d;
-  
+
   cursor: move;
+}
+.chatBoxSvg {
+    background-color: #3b3b3b70;
+    color: white;
+    border-radius: 1rem;
+    padding: 2px;
+    cursor: pointer;
+}
+.chatMinimalize {
+  background: none;
+  border: none;
+}
+
+.chatTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.chatTitle p {
+  text-align: start;
+  margin: 0.5rem;
+  font-weight: bold;
 }
 
 .chatMain {
   border: 1px #23262f dotted;
-  
+
   width: 100%;
 
   display: flex;
