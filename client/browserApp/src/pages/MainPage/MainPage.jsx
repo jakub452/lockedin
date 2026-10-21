@@ -41,7 +41,7 @@ const MainPage = () => {
         <UserList />
         <LoginField />
         <ChatBox minimalized={chatHidden} onMinimalize={() => setChatHidden(!chatHidden)}/>
-        <TaskBar onMinimalize={() => {setChatHidden(!chatHidden)}} />
+        <TaskBar onMinimalize={() => {setChatHidden(!chatHidden)}} chatOpen={!chatHidden} />
       </div>
     </div>
   );

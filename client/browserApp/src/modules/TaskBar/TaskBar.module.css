@@ -1,29 +1,15 @@
 .TaskBarHero {
   position: absolute;
   left: 0;
-
-  height: 6vh;
-  width: 100vw;
-
   top: calc(100vh - 6vh);
-
+  width: 100vw;
+  height: 6vh;
   background-color: rgba(0, 0, 0, 0.582);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
-.TaskBarHero svg{
-    background-color: #3b3b3b70;
-    color: white;
-    border-radius: 1rem;
-    padding: 2px;
 
-    cursor: pointer;
-}
-.TaskBarHero button{
-    background: none;
-    border: none;
-    
+.TaskBarHero :global(.dock) {
+  bottom: 3px;
 }
