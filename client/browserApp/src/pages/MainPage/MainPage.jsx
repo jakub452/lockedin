@@ -21,7 +21,7 @@ const MainPage = () => {
           gradientTo="#FF9FFC"
           dotRadius={0.6}
           dotSpacing={14}
-          cursorRadius={240}
+          cursorRadius={0}
           bulgeStrength={0}
           glowRadius={160}
           pattern="grid"
@@ -30,12 +30,12 @@ const MainPage = () => {
           twist={0}
           glowIntensity={0.3}
           baseOpacity={0.45}
-          waveAmplitude={0}
-          speed={0}
-          sparkle
-          interactive
+          waveAmplitude={3.0}
+          speed={0.5}
+          sparkle={true}
+          interactive={false}
           holdToZoom
-          intro
+          intro={true}
           lightMode={false}
         />
         <UserList />

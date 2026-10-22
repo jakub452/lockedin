@@ -11,6 +11,7 @@ export const registerSocketEvents = (io) => {
 
       callback({ status: "ok", id: socket.id, username });
 
+      io.emit("chat:join", socket.data.username);
       io.emit("userlist:update", [...users.values()]);
     });
 
@@ -23,6 +24,7 @@ export const registerSocketEvents = (io) => {
     });
 
     socket.on("disconnect", () => {
+      io.emit("chat:leave", socket.data.username);
       users.delete(socket.id);
       io.emit("userlist:update", [...users.values()]);
     });

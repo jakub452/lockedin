@@ -22,11 +22,23 @@ const ChatBox = ({minimalized, onMinimalize}) => {
         setItems((prev) => [...prev, createElement("p", { key: prev.length }, `${username}: ${msg}`)]);
       }
     };
+    const onJoin = (username) => {
+      if(userData.loggedIn){
+        setItems((prev) => [...prev, createElement("p", { key: prev.length }, `${username} dołączył do chatu!`)]);
+      }
+    }
+    const onLeave = (username) => {
+      if(userData.loggedIn){
+        setItems((prev) => [...prev, createElement("p", { key: prev.length }, `${username} opuścił chat!`)]);
+      }
+    }
 
     socket.on("chat:message", onMessage);
-
+    socket.on("chat:join", onJoin);
+    socket.on("chat:leave", onLeave)
     return () => {
       socket.off("chat:message", onMessage);
+      socket.off("chat:join", onJoin);
     };
 
   }, []);
